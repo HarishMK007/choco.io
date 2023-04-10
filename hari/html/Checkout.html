@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+      <title>Checkout</title>
+      <meta charset="UTF-8">
+      <!-- This will accommodate different screen sizes and different display devices -->
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <!--link to use to access icons from fontawsome.com, main CSS file, and JavaScript file-->
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+      <link href="../main.css" rel="stylesheet" type="text/css"/>
+      <script type="text/javascript"  src="script.js"></script>
+    </head>
+
+    <body onload = "initialize();shipping();tax();getProductOne();getPriceOne();getProductTwo();getPriceTwo();total()" id ="checkoutBody">
+        <header id="site-header">
+            <img src="../images/logo_transparent.png" alt="Tech Junkies Logo">
+        </header>
+
+        <section>
+            <!-- Navigation Menu (top of page) -->
+            <nav id="navbar">
+                <ul>
+                  <li><a href="../index.html">Home</a></li>
+                  <li><a href="../html/UserInformation.html">Create A New Order</a></li>
+                </ul>
+            </nav>
+        </section>
+
+        <h1>Checkout</h1>
+
+        <div class="col-25">
+            <div class="container">
+              <h3>Your Cart
+                <span class="price" style="color:black">
+                  <i class="fa fa-shopping-cart"style="font-size:36px;"></i>
+                </span>
+              </h3>
+              <p><a href="#"><span id ="p1"></a><span class="price"><span id ="pr1"></span></p>
+              <p><a href="#"><span id ="p2"></a><span class="price"><span id ="pr2"></span></p>
+              <p><a href="#"><span id ="p3"></a><span class="price"><span id ="pr3"></span></p>
+              <p><a href="#"><span id ="p4"></a><span class="price"><span id ="pr4"></span></p>
+              <hr>
+            </div>
+          </div>
+        </div>
+
+        <form action = "submitPaymentInformation.php" method = "post">
+          <!--form begins-->
+          Total Shopping Amount:<span id ="subtotal"></span><br><br>
+          
+          Total Tax:<span id ="tax"></span><br><br>
+          
+          Total Shipping Charges:<span id ="shipping"></span><br><br>
+          
+          Total Amount Due:<span id ="total"></span><br><br>
+          <hr>
+        <div class="row">
+          <div class="col-75">
+            <div class="container">
+
+                <div class="row">
+                  <div class="col-50">
+                  <div class="col-50">
+
+                    <i class="fa fa-credit-card" style="font-size:36px;"></i>
+
+                    <select id = "ccbrand" name = "cardType">
+                      <option for="fname">Payment Type</option>
+                      <option href="#" value = "visa">Visa</option>
+                      <option href="#" value = "amex">American Express</option>
+                      <option href="#" value = "mascard">Mastercard</option>
+                      <option href="#" value = "discard">Discover</option>
+                    </select>
+
+                    <div class="icon-container">
+                      <i class="fa fa-cc-visa" style="color:navy; font-size:36px"></i>
+                      <i class="fa fa-cc-amex" style="color:blue; font-size:36px"></i>
+                      <i class="fa fa-cc-mastercard" style="color:red; font-size:36px"></i>
+                      <i class="fa fa-cc-discover" style="color:orange; font-size:36px"></i>
+                    </div>
+
+                    <table>
+                      <tr>
+                        <label for="cname"><td class="labelstyle">Name on Card</label>
+                        <td><input type="text" id="cname" name="cardname" placeholder="John More Doe"></td>
+                      </tr>
+                      <tr>
+                        <label for="ccnum"><td class="labelstyle">Credit card number</label>
+                        <td><input type="text" id="ccnum" name="cardnumber" placeholder="1111-2222-3333-4444"  onkeypress = "isNumber(event)" maxlength="16"></td>
+                      </tr>
+                      <tr>
+                        <label for="expmonth"><td class="labelstyle">Exp Month</label>
+                        <td><input type="text" id="expmonth" name="expmonth" placeholder="MM" onkeypress = "isNumber(event)" maxlength="2"></td>
+
+                        <div class="row">
+                          <div class="col-50">
+                            <td>
+                            <label for="expyear"><td class="labelstyle">Exp Year</label>
+                            <td><input type="text" id="expyear" name="expyear" placeholder="YYYY" onkeypress = "isNumber(event)" maxlength="4"></td>
+                            </td>
+                          </div>
+                      </tr>
+
+                        <div class="col-50">
+                          <tr>
+                          <label for="cvv"><td class="labelstyle">CVV</label>
+                          <td><input type="text" id="cvv" name="cvv" placeholder="352" onkeypress = "isNumber(event)" maxlength="4"></td>
+                          </tr>
+                        </div>
+                      </div>
+                    </table>
+                  </div>
+                </div>
+
+                <label>
+                  <input type="checkbox" checked="checked" name="sameadr">Shipping address same as billing
+                  <br></br>
+                  <input type="checkbox" checked="checked" name="authpay" required>I agree and authorize the amount to be charged to my credit card.
+                  <br></br>
+                </label>
+                <input type="submit" value="Submit Order" class="btn" onclick="submission()">
+				
+            </div>
+			<a href="shippingInfo.html" class="previous">&laquo; Previous</a>
+            <br>
+          </div>
+          </form>
+          <!--form ends-->
+    </body>
+
+    <!-- Footer Begins -->
+    <footer>
+        <div>
+            <p>Find us on social media</p>
+            <i class="fa fa-facebook-square" style="font-size:24px"></i>
+            <i class="fa fa-instagram" style="font-size:24px"></i>
+            <i class="fa fa-snapchat-square" style="font-size:24px"></i>
+            <i class="fa fa-twitter-square" style="font-size:24px"></i>
+        </div>
+    </footer>
+    <!-- Footer Ends -->
+</html>
