@@ -95,14 +95,10 @@
 
   /* form style to a table layout - Reese */
   
-  .labelstyle {
-    color:white;
-    background-color: black;
-    font-family: sans-serif;
-    font-size: 1em;
-    text-align:center;
-    width: 80pt;
-  }
+.labelstyle{
+    color:black;
+    background-color:red;
+}
   td {
     padding:0;
     border: 0;
